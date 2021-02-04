@@ -22,7 +22,7 @@ httptools==0.1.1
 idna==2.10
 iniconfig==1.1.1
 ipykernel==5.4.3
-https://github.com/ipython/ipython.git
+git+git://github.com/ipython/ipython.git
 ipython==7.20.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.3
