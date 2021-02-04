@@ -128,6 +128,8 @@ async def predict(url: SongURL):
     representing the predicted class's probability
 
     """
+    url.create_tables()
+    
     url.get_data()
     
     df = url.to_df()
