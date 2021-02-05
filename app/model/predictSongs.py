@@ -86,14 +86,14 @@ def wrangle_data(df):
     return wrangled_df
 
 
-def get_pred(query):
+def get_pred(query_user):
     """
     Take in wrangled data and output predictions.
     DataFrame required
 
     returns: [List of track IDs]
     """
-    step_0_pred = model_1.predict(query)
+    step_0_pred = model_1.predict(query_user)
     step_1_pred = model_2.predict(step_0_pred)
 
     results_id = []
