@@ -7,18 +7,20 @@ import os
 import pandas as pd
 import tensorflow as tf
 from tensorflow import keras
+from keras.models import load_model
 
 # Load Models
-model_1 = tf.keras.models.load_model('encoder_model_1.keras', custom_objects={'relu': tf.nn.relu})
-model_2 = load('nearestNeighbors_2.joblib')
+autoencoder = load_model('autoencoder.h5')
+model_1 = load_model('encoder.h5')
+model_2 = load('nearestneighbor.joblib')
 sub_key = load('sub_key0.joblib')
 res_key = load('results_key1.joblib')
 
 
 def wrangle_data(df):
     """
-    Pass user query into wrangle function to normalize numerical values used for prediction and
-        strip unused features from query.
+    Pass user query into wrangle function to normalize numerical values used
+     for prediction and strip unused features from query.
 
     :input: Pandas.DataFrame of Song with 19 features
 
