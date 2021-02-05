@@ -90,26 +90,22 @@ def get_pred(query):
     """
     Take in wrangled data and output predictions.
     DataFrame required
+
+    returns: [List of track IDs]
     """
     step_0_pred = model_1.predict(query)
     step_1_pred = model_2.predict(step_0_pred)
-
 
     results_id = []
 
     for i in step_1_pred[1][0]:
         results_id.append(res_key.iloc[sub_key.iloc[i].name]['id'])
-        # print(f"\tArtist: {res_key.iloc[sub_key.iloc[i].name]['artists'].strip('[]')}\n\
-        #       Track: {res_key.iloc[sub_key.iloc[i].name]['name']}\n\
-        #         id: {res_key.iloc[sub_key.iloc[i].name]['id']}\n")
 
     return str(results_id)
 
 
+# Testing Below: Simulating user input
 raw_df = pd.read_csv('data.csv')
-
-# wrangle_data()
 track_id = '5oUL6PknwhcBsAD1SU4xQg'
 query = wrangle_data(raw_df[raw_df['id'] == track_id])
 print(get_pred(query))
-
